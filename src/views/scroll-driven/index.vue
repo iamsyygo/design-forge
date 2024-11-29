@@ -31,38 +31,43 @@ const centerImages = Array.from(
 const masterImage = 'https://picsum.photos/id/888/1920/1080'
 </script>
 <template>
-  <div h-100vh flex-center position-relative z-10>
-    <h1 text-6vw font-bold>Scroll driven</h1>
-  </div>
-  <div class="wrapper" h-200vh box-border>
-    <div w-full h-100vh flex-center sticky top-0 box-border>
-      <div class="layer" grid grid-cols-5 grid-rows-3 gap-8 content-center mx-auto>
-        <!-- 外层 -->
-        <div class="outer ordinary">
-          <div v-for="image in outerImages" :key="image" rounded-lg overflow-hidden>
-            <img :src="image" alt="" w-full h-full object-cover />
+  <div w-full h-full class="scroll-driven">
+    <div h-100vh flex-center position-relative z-10>
+      <h1 text-6vw font-bold font-caveat>Scroll driven</h1>
+    </div>
+    <div class="wrapper" h-100vh box-border>
+      <div w-full h-100vh flex-center sticky top-0 box-border>
+        <div class="layer" grid grid-cols-5 grid-rows-3 gap-4 content-center mx-auto>
+          <!-- 外层 -->
+          <div class="outer ordinary">
+            <div v-for="image in outerImages" :key="image" rounded-lg overflow-hidden>
+              <img :src="image" alt="" w-full h-full object-cover />
+            </div>
           </div>
-        </div>
 
-        <!-- 内层 -->
-        <div class="inner ordinary">
-          <div v-for="image in innerImages" :key="image" rounded-lg overflow-hidden>
-            <img :src="image" alt="" w-full h-full object-cover />
+          <!-- 内层 -->
+          <div class="inner ordinary">
+            <div v-for="image in innerImages" :key="image" rounded-lg overflow-hidden>
+              <img :src="image" alt="" w-full h-full object-cover />
+            </div>
           </div>
-        </div>
 
-        <!-- 中间 -->
-        <div class="center ordinary">
-          <div v-for="image in centerImages" :key="image" rounded-lg overflow-hidden>
-            <img :src="image" alt="" w-full h-full object-cover />
+          <!-- 中间 -->
+          <div class="center ordinary">
+            <div v-for="image in centerImages" :key="image" rounded-lg overflow-hidden>
+              <img :src="image" alt="" w-full h-full object-cover />
+            </div>
           </div>
-        </div>
 
-        <!-- 主图 -->
-        <div class="master" rounded-lg>
-          <img :src="masterImage" alt="" w-full h-full object-cover />
+          <!-- 主图 -->
+          <div class="master" rounded-lg>
+            <img :src="masterImage" alt="" w-full h-full object-cover />
+          </div>
         </div>
       </div>
+    </div>
+    <div h-100vh flex-center>
+      <h1 text-6vw font-bold font-caveat>!!!❤️</h1>
     </div>
   </div>
 </template>
@@ -202,6 +207,10 @@ const masterImage = 'https://picsum.photos/id/888/1920/1080'
 @media (prefers-reduced-motion: no-preference) {
   // 是否支持新特性
   @supports (animation-timeline: scroll()) and (animation-range: 0 100%) {
+    .wrapper {
+      @apply h-200vh;
+    }
+
     .master > img {
       box-sizing: border-box;
       position: absolute;
@@ -272,14 +281,9 @@ const masterImage = 'https://picsum.photos/id/888/1920/1080'
     scale: 0;
   }
 }
-</style>
 
-<style lang="scss">
-#app {
-  width: 100%;
-  height: 100%;
+.scroll-driven {
   position: relative;
-
   &::before {
     content: '';
     position: fixed;

@@ -25,5 +25,6 @@ export default defineConfig({
   content: {},
   rules: [
     ['flex-center', { display: 'flex', 'justify-content': 'center', 'align-items': 'center' }],
+    ['font-caveat', { 'font-family': 'Caveat' }],
   ],
 })
