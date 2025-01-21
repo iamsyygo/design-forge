@@ -1,5 +1,5 @@
 {
-  "name": "example-design-forge",
+  "name": "design-forge",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -16,6 +16,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "lorem-ipsum": "^2.0.8",
+    "motion": "^11.15.0",
     "pinia": "^2.2.6",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5"

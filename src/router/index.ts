@@ -5,7 +5,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('@/views/scroll-driven/index.vue'),
+      // component: () => import('@/views/scroll-driven/index.vue'),
+      component: () => import('@/views/animatesharedlayout/index.vue'),
     },
   ],
 })
